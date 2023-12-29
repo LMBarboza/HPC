@@ -55,3 +55,8 @@ void gaussj(float **a, int n, float **b, int m)
 	free_ivector(indxr, 1, n);
 	free_ivector(indxc, 1, n);
 }
+
+int main(void){
+
+  return 0;
+}
