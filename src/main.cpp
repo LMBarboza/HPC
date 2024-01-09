@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../include/matrixAVX.h"
+#include "../include/matrixMP.h"
 #include <vector>
 
 int main(void){
@@ -27,6 +28,19 @@ int main(void){
           data[i][j] = static_cast<float>(rand()) / RAND_MAX;
         }
     }
+  MatrizMP matriz1(data);
+  matriz1.print();
+  MatrizMP matriz2(data);
+  MatrizMP result1 = matriz1 + matriz2;
+  result1.print();
+  MatrizMP result2 = matriz1 - matriz2;
+  result2.print();
+  MatrizMP result3 = matriz1 * 2;
+  result3.print();
+  MatrizMP result4 = matriz1 / matriz2;
+  result4.print();
+
+/*
   MatrizAVX matriz1(data);
   matriz1.print();
   MatrizAVX matriz2(data);
@@ -38,6 +52,6 @@ int main(void){
   result3.print();
   MatrizAVX result4 = matriz1 / matriz2;
   result4.print();
-
+*/
   return 0;
 }
