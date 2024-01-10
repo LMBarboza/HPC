@@ -1,18 +1,18 @@
 #include "../include/matrix.h"
 #include <iostream>
 
-Matriz::Matriz(const std::vector<std::vector<float>>& dados) : elementos(dados) {}
+Matriz::Matriz(std::vector<std::vector<float>>& dados) : elementos(dados) {}
 
 void Matriz::print() {
-    for (const std::vector<float>& linha : elementos) {
-        for (const float& elemento : linha) {
+    for (std::vector<float>& linha : elementos) {
+        for (float& elemento : linha) {
             std::cout << elemento << " ";
         }
         std::cout << "\n";
     }
 }
 
-Matriz Matriz::operator+(const Matriz& obj) {
+Matriz Matriz::operator+(Matriz& obj) {
     if (obj.elementos.size() != elementos.size() || obj.elementos[0].size() != elementos[0].size()) {
         throw std::invalid_argument("1");
     }
@@ -28,7 +28,7 @@ Matriz Matriz::operator+(const Matriz& obj) {
     return Matriz(res);
 }
 
-Matriz Matriz::operator-(const Matriz& obj) {
+Matriz Matriz::operator-(Matriz& obj) {
     if (obj.elementos.size() != elementos.size() || obj.elementos[0].size() != elementos[0].size()) {
         throw std::invalid_argument("1");
     }
@@ -56,7 +56,7 @@ Matriz Matriz::operator*(float a) {
     return Matriz(res);
 }
 
-Matriz Matriz::operator/(const Matriz& obj) {
+Matriz Matriz::operator/(Matriz& obj) {
     if (elementos[0].size() != obj.elementos.size()) {
         throw std::invalid_argument("1");
     }

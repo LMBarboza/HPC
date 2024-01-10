@@ -9,17 +9,17 @@ class MatrizAVX {
 public:
     std::vector<std::vector<float>> elementos;
 
-    MatrizAVX(const std::vector<std::vector<float>>& dados);
+    MatrizAVX(std::vector<std::vector<float>>& dados);
 
     void print();
 
-    MatrizAVX operator+(const MatrizAVX& obj);
+    MatrizAVX operator+(MatrizAVX& obj);
 
-    MatrizAVX operator-(const MatrizAVX& obj);
+    MatrizAVX operator-(MatrizAVX& obj);
 
     MatrizAVX operator*(float a);
 
-    MatrizAVX operator/(const MatrizAVX& obj);
+    MatrizAVX operator/(MatrizAVX& obj);
 
     MatrizAVX transpor();
 
