@@ -1,8 +1,22 @@
 #include <iostream>
+#include "../include/matrix.h"
 #include "../include/matrixAVX.h"
 #include "../include/matrixMP.h"
+#include "../include/matrixMPI.h"
 #include <vector>
+#include <chrono>
 
+std::vector<std::vector<float>> create_matrix(int rows, int cols){
+  std::vector<std::vector<float>> data(rows, std::vector<float>(cols, 0.0f));
+
+  for (size_t i = 0; i < rows; ++i) {
+      for (size_t j = 0; j < cols; ++j) {
+          data[i][j] = static_cast<float>(rand()) / RAND_MAX;
+        }
+    }
+  return data;
+
+}
 int main(void){
   /*std::cout << "Insira o número de linhas e colunas: ";
   size_t lin, col;
@@ -17,41 +31,23 @@ int main(void){
         std::cin >> dados[i][j];
       }
     }*/
-  const size_t rows = 2;
-  const size_t cols = 2;
+  const size_t rows = 1000;
+  const size_t cols = 1000;
+  std::vector<std::vector<float>> mat1 = create_matrix(rows, cols);
+  std::vector<std::vector<float>> mat2 = create_matrix(rows, cols);
+  MatrizAVX matriz1(mat1);
+  MatrizAVX matriz2(mat2);
+  MatrizMPI matriz3(mat1);
+  MatrizMPI matriz4(mat2);
+  Matriz matriz5(mat1);
+  Matriz matriz6(mat1);
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+  MatrizMPI result = matriz3 + matriz4;
+	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+  std::cout << "Time difference = " << std::chrono::duration_cast<std::chrono::microseconds>
+    (end - begin).count()/100 << "[µs]" << std::endl;
 
-  std::vector<std::vector<float>> data(rows, std::vector<float>(cols, 0.0f));
-
-    // Fill the matrix with random values
-  for (size_t i = 0; i < rows; ++i) {
-      for (size_t j = 0; j < cols; ++j) {
-          data[i][j] = static_cast<float>(rand()) / RAND_MAX;
-        }
-    }
-  MatrizMP matriz1(data);
-  matriz1.print();
-  MatrizMP matriz2(data);
-  MatrizMP result1 = matriz1 + matriz2;
-  result1.print();
-  MatrizMP result2 = matriz1 - matriz2;
-  result2.print();
-  MatrizMP result3 = matriz1 * 2;
-  result3.print();
-  MatrizMP result4 = matriz1 / matriz2;
-  result4.print();
-
-/*
-  MatrizAVX matriz1(data);
-  matriz1.print();
-  MatrizAVX matriz2(data);
-  MatrizAVX result1 = matriz1 + matriz2;
-  result1.print();
-  MatrizAVX result2 = matriz1 - matriz2;
-  result2.print();
-  MatrizAVX result3 = matriz1 * 2;
-  result3.print();
-  MatrizAVX result4 = matriz1 / matriz2;
-  result4.print();
-*/
+  
+   
   return 0;
 }
