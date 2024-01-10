@@ -14,6 +14,28 @@ This repository contains a set of matrix operations implemented using AVX (Advan
 
 - **MPI:** This directory contains the MPI code.
 
+## Results
+
+Matrix Size: 1000x1000
+
+### Benchmark Matrix Addition Time
+
+- Basic: 194[µs]
+- AVX: 63[µs]
+- OpenMP: 98[µs]
+
+### Benchmark Multiplication by a Scalar Time
+
+- Basic: 195[µs]
+- AVX: 38[µs]
+- OpenMP: 58[µs]
+
+### Benchmark Matrix Multiplication Time
+
+- Basic: 188743[µs]
+- AVX: 18423[µs]
+- OpenMP: 62256[µs]
+
 ## Dependencies
 
 - AVX: Ensure your CPU supports AVX instructions.
