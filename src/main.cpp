@@ -31,8 +31,8 @@ int main(void){
         std::cin >> dados[i][j];
       }
     }*/
-  const size_t rows = 1000;
-  const size_t cols = 1000;
+  const size_t rows = 100;
+  const size_t cols = 100;
   std::vector<std::vector<float>> mat1 = create_matrix(rows, cols);
   std::vector<std::vector<float>> mat2 = create_matrix(rows, cols);
   MatrizAVX matriz1(mat1);
@@ -42,7 +42,7 @@ int main(void){
   Matriz matriz5(mat1);
   Matriz matriz6(mat1);
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
-  MatrizMPI result = matriz3 + matriz4;
+  MatrizMPI result = matriz3 / matriz4;
 	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
   std::cout << "Time difference = " << std::chrono::duration_cast<std::chrono::microseconds>
     (end - begin).count()/100 << "[µs]" << std::endl;
