@@ -20,21 +20,24 @@ Matrix Size: 1000x1000
 
 ### Benchmark Matrix Addition Time
 
-- Basic: 194[µs]
-- AVX: 63[µs]
-- OpenMP: 98[µs]
+- Basic: 197[µs]
+- AVX: 69[µs]
+- OpenMP: 131[µs]
+- AVX and OpenMP: 69[µs]
 
 ### Benchmark Multiplication by a Scalar Time
 
-- Basic: 195[µs]
-- AVX: 38[µs]
-- OpenMP: 58[µs]
+- Basic: 153[µs]
+- AVX: 46[µs]
+- OpenMP: 152[µs]
+- AVX and OpenMP: 90[µs]
 
 ### Benchmark Matrix Multiplication Time
 
-- Basic: 188743[µs]
-- AVX: 18423[µs]
-- OpenMP: 62256[µs]
+- Basic: 191191[µs]
+- AVX: 18477[µs]
+- OpenMP: 58227[µs]
+- AVX and OpenMP: 21086[µs]
 
 ## Dependencies
 

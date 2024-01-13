@@ -4,7 +4,8 @@ CFLAGS = -mavx -fopenmp
 
 SRC_DIR = src
 
-SRCS = $(SRC_DIR)/main.cpp $(SRC_DIR)/matrix.cpp $(SRC_DIR)/matrixAVX.cpp $(SRC_DIR)/matrixMP.cpp
+SRCS = $(SRC_DIR)/main.cpp $(SRC_DIR)/matrix.cpp $(SRC_DIR)/matrixAVX.cpp $(SRC_DIR)/matrixMP.cpp $(SRC_DIR)/matrixAVXMP.cpp
+
 
 OUTPUT_DIR = bin
 
