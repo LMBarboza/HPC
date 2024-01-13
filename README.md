@@ -12,7 +12,7 @@ This repository contains a set of matrix operations implemented using AVX (Advan
 
 - **bin:** The compiled binaries for `main.cpp`.
 
-- **MPI:** This directory contains the MPI code.
+- **MPI:** This directory contains the MPI code and its results.
 
 ## Results
 
